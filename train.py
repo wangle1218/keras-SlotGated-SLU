@@ -101,7 +101,7 @@ test_processor = DataProcessor(
 if __name__ == '__main__':
     train_X, train_slot_y, train_intent_y = train_processor.get_data()
     model_param['intent_nums'] = len(set(train_intent_y.flatten())) + 2
-    model_param['intent_nums'] = len(set(train_slot_y.flatten())) + 2
+    model_param['slot_label_nums'] = len(set(train_slot_y.flatten())) + 2
     train_slot_y = keras.utils.to_categorical(train_slot_y,num_classes=model_param['slot_label_nums'])
     train_intent_y = keras.utils.to_categorical(train_intent_y,num_classes=model_param['intent_nums'])
 
